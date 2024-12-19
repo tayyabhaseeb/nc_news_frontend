@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 
 function Header() {
   return (
-    <div className="  flex items-center justify-between p-6 md:p-10">
+    <div className="flex items-center justify-between p-6 bg-[rgba(248, 249, 249)] border-2 border-solid md:p-10">
       <Drawer />
       <h1 className="text-2xl font-bold text-[rgba(235,27,36)] md:text-5xl">
         Northcoders News

@@ -12,7 +12,7 @@ function SideNav({ setShow }) {
         id="drawer-navigation-label"
         className="text-base font-semibold text-[rgba(235,27,36)] uppercase dark:text-gray-400 md:text-2xl md:font-bold"
       >
-        Menu
+        Topics
       </h5>
       {/* Close Button */}
       <button
@@ -46,7 +46,7 @@ function SideNav({ setShow }) {
               href="#"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
-              <span className="ml-3">Dashboard</span>
+              <span className="ml-3">Home</span>
             </a>
           </li>
           <li>
@@ -54,7 +54,7 @@ function SideNav({ setShow }) {
               href="#"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
-              <span className="ml-3">E-commerce</span>
+              <span className="ml-3">Coding</span>
             </a>
           </li>
           <li>
@@ -62,7 +62,15 @@ function SideNav({ setShow }) {
               href="#"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
-              <span className="ml-3">Inbox</span>
+              <span className="ml-3">Cooking</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+            >
+              <span className="ml-3">Football</span>
             </a>
           </li>
         </ul>

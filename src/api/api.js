@@ -21,3 +21,15 @@ export const getArticleComments = (id) => {
     return res.data.comments;
   });
 };
+
+export const incrementVotes = (id) => {
+  return articlesApi
+    .patch(`/articles/${id}`, { inc_votes: 1 })
+    .then((response) => response.data.article);
+};
+
+export const decrementVotes = (id) => {
+  return articlesApi
+    .patch(`/articles/${id}`, { inc_votes: -1 })
+    .then((response) => response.data.article);
+};

@@ -1,7 +1,6 @@
 import React from "react";
 
 function CommentsCard({ obj }) {
-  console.log(obj);
   return (
     <ul role="list" className=" border-b-2 border-dotted border-gray-500">
       <li className="py-3 sm:py-4">

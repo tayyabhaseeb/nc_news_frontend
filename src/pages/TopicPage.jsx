@@ -22,7 +22,7 @@ function TopicPage() {
         setLoading(false);
         setError(err);
       });
-  }, []);
+  }, [topic]);
 
   return (
     <div className=" my-6 p-4 flex flex-col  items-center md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4">

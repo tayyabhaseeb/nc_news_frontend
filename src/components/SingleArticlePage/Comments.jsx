@@ -11,9 +11,9 @@ function Comments({ comments }) {
           </h5>
         </div>
         <div className="flow-root">
-          {comments.map((obj) => {
-            return <CommentsCard obj={obj} />;
-          })}
+          {comments.map((obj, index) => (
+            <CommentsCard obj={obj} key={obj.comment_id || `temp-${index}`} />
+          ))}
         </div>
       </div>
     </>

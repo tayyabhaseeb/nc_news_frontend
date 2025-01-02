@@ -88,7 +88,7 @@ function SingleArticlePage() {
         </div>
       </div>
       <Comments comments={comments} />
-      <AddCommentForm />
+      <AddCommentForm setComments={setComments} id={id} />
     </>
   );
 }

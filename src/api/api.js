@@ -33,3 +33,23 @@ export const decrementVotes = (id) => {
     .patch(`/articles/${id}`, { inc_votes: -1 })
     .then((response) => response.data.article);
 };
+
+export const addNewComment = (id, userName, userMessage) => {
+  return articlesApi
+    .post(`/articles/${id}/comments`, {
+      username: userName,
+      body: userMessage,
+    })
+    .then((data) => {
+      return data.data.comment;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+export const getSpecificArticle = (topic) => {
+  return articlesApi.get(`/articles?topic=${topic}`).then((res) => {
+    return res.data.articles;
+  });
+};

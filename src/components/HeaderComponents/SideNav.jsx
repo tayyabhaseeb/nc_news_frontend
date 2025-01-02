@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 function SideNav({ setShow }) {
+  const topics = ["home", "coding", "cooking", "football"];
   return (
     <div
       id="drawer-navigation"
@@ -42,36 +44,40 @@ function SideNav({ setShow }) {
       <div className="py-4">
         <ul className="space-y-2 font-medium">
           <li>
-            <a
-              href="#"
+            <Link
+              onClick={() => setShow(false)}
+              to="/"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
               <span className="ml-3">Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              onClick={() => setShow(false)}
+              to="/articles/topics/coding"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
               <span className="ml-3">Coding</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              onClick={() => setShow(false)}
+              to="/articles/topics/cooking"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
               <span className="ml-3">Cooking</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              onClick={() => setShow(false)}
+              to="/articles/topics/football"
               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
             >
               <span className="ml-3">Football</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -80,3 +86,53 @@ function SideNav({ setShow }) {
 }
 
 export default SideNav;
+
+//  <li>
+//             <a
+//               href="#"
+//               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+//             >
+//               <span className="ml-3">Home</span>
+//             </a>
+//           </li>
+//           <li>
+//             <a
+//               href="#"
+//               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+//             >
+//               <span className="ml-3">Coding</span>
+//             </a>
+//           </li>
+//           <li>
+//             <a
+//               href="#"
+//               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+//             >
+//               <span className="ml-3">Cooking</span>
+//             </a>
+//           </li>
+//           <li>
+//             <a
+//               href="#"
+//               className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+//             >
+//               <span className="ml-3">Football</span>
+//             </a>
+//           </li>
+
+// {
+//   topics.map((topic) => (
+//     <li key={topic}>
+//       <Link
+
+//         to={`/articles/topics/${topic}`}
+//         className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+//         onClick={() => setShow(false)}
+//       >
+//         <span className="ml-3">
+//           {topic.charAt(0).toUpperCase() + topic.slice(1)}
+//         </span>
+//       </Link>
+//     </li>
+//   ));
+// }

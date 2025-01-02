@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { addNewComment } from "../../api/api";
 
-function AddCommentForm() {
+function AddCommentForm({ setComments, id }) {
+  const [userName, setUserName] = useState("");
+  const [userMessage, setUserMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const optimisticComment = { author: userName, body: userMessage };
+    setComments((prev) => [optimisticComment, ...prev]);
+    setUserName("");
+    setUserMessage("");
+    addNewComment(id, userName, userMessage)
+      .then((data) => {
+        setComments((prev) =>
+          prev.map((comment) =>
+            comment === optimisticComment
+              ? { author: data.author, body: data.body }
+              : comment
+          )
+        );
+      })
+      .catch((err) => {
+        setComments((prevArr) =>
+          prevArr.filter((obj) => obj !== optimisticComment)
+        );
+      });
+  };
+
   return (
     <div className="bg-white border border-gray-200 rounded-lg mx-4 p-4 flex flex-col gap-2 my-2 md:w-1/2 md:mx-auto">
       <h3>Share your thoughts</h3>
-      <form className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="relative">
           <input
             type="text"
             id="floating_outlined"
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[rgba(235,17,36)] peer"
             placeholder=" "
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
           />
           <label
             htmlFor="floating_outlined"
@@ -25,6 +54,8 @@ function AddCommentForm() {
             id="floating_outlined"
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[rgba(235,17,36)] peer"
             placeholder=" "
+            value={userMessage}
+            onChange={(e) => setUserMessage(e.target.value)}
           />
           <label
             htmlFor="floating_outlined"

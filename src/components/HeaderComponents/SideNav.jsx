@@ -79,6 +79,15 @@ function SideNav({ setShow }) {
               <span className="ml-3">Football</span>
             </Link>
           </li>
+          <li>
+            <Link
+              onClick={() => setShow(false)}
+              to="/users"
+              className="flex items-center p-2 text-[rgba(235,27,36)] rounded-lg hover:bg-[rgba(235,27,36)] hover:text-white dark:text-white dark:hover:bg-gray-700 md:text-xl"
+            >
+              <span className="ml-3">Users</span>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function CommentsCard({ obj }) {
+function CommentsCard({ obj, showDeleteBtn }) {
   return (
     <ul role="list" className=" border-b-2 border-dotted border-gray-500">
       <li className="py-3 sm:py-4">
@@ -15,6 +15,12 @@ function CommentsCard({ obj }) {
           </div>
           {/* May be delete button i add here */}
         </div>
+
+        {showDeleteBtn && (
+          <button className="ml-4 my-4 px-4 py-2 bg-[rgba(235,27,36)] text-white font-bold rounded hover:bg-white hover:border-2 hover:border-solid hover:border-[rgba(235,27,36)] hover:text-[rgba(235,27,36)]">
+            Delete
+          </button>
+        )}
       </li>
     </ul>
   );

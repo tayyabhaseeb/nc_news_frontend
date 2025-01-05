@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { addNewComment } from "../../api/api";
 
-function AddCommentForm({ setComments, id }) {
+function AddCommentForm({ setComments, id, setNewCommentId }) {
   const [userName, setUserName] = useState("");
   const [userMessage, setUserMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const optimisticComment = { author: userName, body: userMessage };
     setComments((prev) => [optimisticComment, ...prev]);
     setUserName("");
     setUserMessage("");
     addNewComment(id, userName, userMessage)
       .then((data) => {
+        setNewCommentId(data.comment_id);
         setComments((prev) =>
           prev.map((comment) =>
-            comment === optimisticComment
-              ? { author: data.author, body: data.body }
-              : comment
+            comment === optimisticComment ? { ...data } : comment
           )
         );
       })

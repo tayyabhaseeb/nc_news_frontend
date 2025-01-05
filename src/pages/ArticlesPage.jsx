@@ -3,6 +3,7 @@ import Input from "../components/ArticlesPageComponents/Input";
 import { getArticles } from "../api/api";
 import ArticlesCard from "../components/ArticlesPageComponents/articlesCard";
 import Spinner from "../components/otherComponents/Spinner";
+import Select from "../components/ArticlesPageComponents/Select";
 
 function ArticlesPage() {
   const [articles, setArticles] = useState([]);
@@ -30,13 +31,16 @@ function ArticlesPage() {
       <p className=" p-2 mb-1 md:text-2xl">
         The latest news and insights on coding and the tech industry
       </p>
-      <Input
-        setArticles={setArticles}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        setUpdatedArticles={setUpdatedArticles}
-        articles={articles}
-      />
+      <div className=" flex flex-col gap-4 md:flex-row">
+        <Input
+          setArticles={setArticles}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          setUpdatedArticles={setUpdatedArticles}
+          articles={articles}
+        />
+        <Select />
+      </div>
 
       <div className=" my-6 p-4 flex flex-col  items-center md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4">
         {isLoading ? (

@@ -17,6 +17,9 @@ function SingleArticlePage() {
   const [votes, setVotes] = useState(0);
   const [isAddedToggle, setIsAddedToggle] = useState(false);
   const [isDecrementToggle, setIsDecrementToggle] = useState(false);
+  const [newCommentId, setNewCommentId] = useState(null);
+
+  console.log(newCommentId);
 
   const { id } = useParams();
 
@@ -87,8 +90,12 @@ function SingleArticlePage() {
           </div>
         </div>
       </div>
-      <Comments comments={comments} />
-      <AddCommentForm setComments={setComments} id={id} />
+      <Comments comments={comments} newCommentId={newCommentId} />
+      <AddCommentForm
+        setComments={setComments}
+        id={id}
+        setNewCommentId={setNewCommentId}
+      />
     </>
   );
 }

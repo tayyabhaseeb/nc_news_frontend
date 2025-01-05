@@ -53,3 +53,9 @@ export const getSpecificArticle = (topic) => {
     return res.data.articles;
   });
 };
+
+export const getAllUsers = () => {
+  return articlesApi.get("/users").then((res) => {
+    return res.data.users;
+  });
+};

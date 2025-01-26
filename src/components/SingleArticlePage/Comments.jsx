@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CommentsCard from "./CommentsCard";
 
-function Comments({ comments, newCommentId }) {
+function Comments({ comments, newCommentId, setComments }) {
   console.log(newCommentId);
   return (
     <>
@@ -13,12 +13,12 @@ function Comments({ comments, newCommentId }) {
         </div>
         <div className="flow-root">
           {comments.map((obj, index) => {
-            console.log(obj);
             return (
               <CommentsCard
                 obj={obj}
                 key={obj.comment_id || `temp-${index}`}
                 showDeleteBtn={newCommentId === obj.comment_id}
+                setComments={setComments}
               />
             );
           })}

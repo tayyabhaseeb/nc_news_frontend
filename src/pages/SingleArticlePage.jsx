@@ -90,11 +90,15 @@ function SingleArticlePage() {
           </div>
         </div>
       </div>
-      <Comments comments={comments} newCommentId={newCommentId} />
       <AddCommentForm
         setComments={setComments}
         id={id}
         setNewCommentId={setNewCommentId}
+      />
+      <Comments
+        comments={comments}
+        newCommentId={newCommentId}
+        setComments={setComments}
       />
     </>
   );

@@ -59,3 +59,9 @@ export const getAllUsers = () => {
     return res.data.users;
   });
 };
+
+export const deleteCommentById = (id) => {
+  return articlesApi.delete(`/comments/${id}`).then((res) => {
+    return res;
+  });
+};

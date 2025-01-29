@@ -8,6 +8,8 @@ import SingleArticlePage from "./pages/singleArticlePage";
 import TopicPage from "./pages/TopicPage";
 import UsersPage from "./pages/UsersPage";
 import Footer from "./components/Footer/Footer";
+import LoginPage from "./pages/LoginPage";
+import PrivateRoute from "../auth/PrivateRoute";
 
 function App() {
   return (
@@ -15,7 +17,15 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<ArticlesPage />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <ArticlesPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/articles/:id" element={<SingleArticlePage />} />
           <Route path="/articles/topics/:topic" element={<TopicPage />} />

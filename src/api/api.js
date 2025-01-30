@@ -48,6 +48,21 @@ export const addNewComment = (id, userName, userMessage) => {
     });
 };
 
+export const addNewArticle = (author, title, body, topic, article_img_url) => {
+  return articlesApi
+    .post(`/articles`, {
+      author,
+      title,
+      body,
+      topic,
+      article_img_url,
+    })
+    .then((data) => {
+      console.log(data);
+      return data;
+    });
+};
+
 export const getSpecificArticle = (topic) => {
   return articlesApi.get(`/articles?topic=${topic}`).then((res) => {
     return res.data.articles;

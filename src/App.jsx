@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Header from "./components/HeaderComponents/Header";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Link } from "react-router";
 import ArticlesPage from "./pages/ArticlesPage";
 import "./index.css";
 import SingleArticlePage from "./pages/singleArticlePage";
@@ -10,20 +10,22 @@ import UsersPage from "./pages/UsersPage";
 import Footer from "./components/Footer/Footer";
 import LoginPage from "./pages/LoginPage";
 import PrivateRoute from "../auth/PrivateRoute";
-import { IoMdAddCircleOutline } from "react-icons/io";
+
+import CreateArticlePage from "./pages/CreateArticlePage";
 
 function App() {
+  const [articles, setArticles] = useState([]);
   return (
-    <div className="min-h-screen flex flex-col absolute">
-      <IoMdAddCircleOutline className="relative bottom-0 left-0" />
+    <div className="min-h-screen flex flex-col">
       <BrowserRouter>
         <Header />
+
         <Routes>
           <Route
             path="/"
             element={
               <PrivateRoute>
-                <ArticlesPage />
+                <ArticlesPage articles={articles} setArticles={setArticles} />
               </PrivateRoute>
             }
           />
@@ -31,6 +33,10 @@ function App() {
           <Route path="/users" element={<UsersPage />} />
           <Route path="/articles/:id" element={<SingleArticlePage />} />
           <Route path="/articles/topics/:topic" element={<TopicPage />} />
+          <Route
+            path="/articles/new"
+            element={<CreateArticlePage setArticles={setArticles} />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

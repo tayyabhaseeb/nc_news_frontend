@@ -4,9 +4,10 @@ import { getArticles } from "../api/api";
 import ArticlesCard from "../components/ArticlesPageComponents/articlesCard";
 import Spinner from "../components/otherComponents/Spinner";
 import Select from "../components/ArticlesPageComponents/Select";
+import { Link } from "react-router";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
-function ArticlesPage() {
-  const [articles, setArticles] = useState([]);
+function ArticlesPage({ articles, setArticles }) {
   const [inputValue, setInputValue] = useState("");
   const [updatedArticles, setUpdatedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,9 @@ function ArticlesPage() {
 
   return (
     <div className=" p-6 bg-[rgba(248, 249, 249)]">
+      <Link to="/articles/new">
+        <IoMdAddCircleOutline className="fixed text-6xl bottom-4 right-4 cursor-pointer fill-[rgba(235,27,36)]" />
+      </Link>
       <p className="text-2xl  p-2 mb-1 md:text-6xl">News & Blog</p>
       <p className=" p-2 mb-1 md:text-2xl">
         The latest news and insights on coding and the tech industry

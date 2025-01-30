@@ -20,24 +20,27 @@ function App() {
       <BrowserRouter>
         <Header />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <ArticlesPage articles={articles} setArticles={setArticles} />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/users" element={<UsersPage />} />
-          <Route path="/articles/:id" element={<SingleArticlePage />} />
-          <Route path="/articles/topics/:topic" element={<TopicPage />} />
-          <Route
-            path="/articles/new"
-            element={<CreateArticlePage setArticles={setArticles} />}
-          />
-        </Routes>
+        <div className="flex-grow">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <ArticlesPage articles={articles} setArticles={setArticles} />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/articles/:id" element={<SingleArticlePage />} />
+            <Route path="/articles/topics/:topic" element={<TopicPage />} />
+            <Route
+              path="/articles/new"
+              element={<CreateArticlePage setArticles={setArticles} />}
+            />
+          </Routes>
+        </div>
+
         <Footer />
       </BrowserRouter>
     </div>

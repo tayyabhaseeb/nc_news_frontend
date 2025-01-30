@@ -8,6 +8,8 @@ import {
 import { useParams } from "react-router";
 import Comments from "../components/SingleArticlePage/Comments";
 import AddCommentForm from "../components/SingleArticlePage/AddCommentForm";
+import { BiSolidDownvote } from "react-icons/bi";
+import { BiSolidUpvote } from "react-icons/bi";
 
 function SingleArticlePage() {
   const [article, setArticle] = useState({});
@@ -18,6 +20,8 @@ function SingleArticlePage() {
   const [isAddedToggle, setIsAddedToggle] = useState(false);
   const [isDecrementToggle, setIsDecrementToggle] = useState(false);
   const [newCommentId, setNewCommentId] = useState(null);
+  const [iconGreen, setIconGreen] = useState(false);
+  const [iconRed, setIconRed] = useState(false);
 
   console.log(newCommentId);
 
@@ -40,6 +44,8 @@ function SingleArticlePage() {
 
   function handleAddClick() {
     setIsDecrementToggle((prev) => !prev);
+    setIconGreen((prev) => !prev);
+    setIconRed(false);
 
     if (!isDecrementToggle) {
       setVotes((prev) => prev + 1);
@@ -57,6 +63,8 @@ function SingleArticlePage() {
 
   function handleDecrementClick() {
     setIsAddedToggle((prev) => !prev);
+    setIconGreen(false);
+    setIconRed((prev) => !prev);
 
     if (!isAddedToggle) {
       setVotes((prev) => prev - 1);
@@ -85,8 +93,18 @@ function SingleArticlePage() {
           <h3>Do you like this blog ?</h3>
           <p>Votes: {votes}</p>
           <div className="flex gap-4 justify-center my-4">
-            <button onClick={handleAddClick}>👍</button>
-            <button onClick={handleDecrementClick}>👎</button>
+            <BiSolidUpvote
+              onClick={handleAddClick}
+              className={`text-3xl cursor-pointer ${
+                iconGreen ? "fill-green-500" : ""
+              } `}
+            />
+            <BiSolidDownvote
+              onClick={handleDecrementClick}
+              className={`text-3xl cursor-pointer ${
+                iconRed ? "fill-red-500" : ""
+              } `}
+            />
           </div>
         </div>
       </div>

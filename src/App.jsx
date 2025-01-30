@@ -10,10 +10,12 @@ import UsersPage from "./pages/UsersPage";
 import Footer from "./components/Footer/Footer";
 import LoginPage from "./pages/LoginPage";
 import PrivateRoute from "../auth/PrivateRoute";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col absolute">
+      <IoMdAddCircleOutline className="relative bottom-0 left-0" />
       <BrowserRouter>
         <Header />
         <Routes>

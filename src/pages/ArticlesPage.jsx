@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Input from "../components/ArticlesPageComponents/Input";
 import { getArticles } from "../api/api";
 import ArticlesCard from "../components/ArticlesPageComponents/articlesCard";
-import Spinner from "../components/otherComponents/Spinner";
 import Select from "../components/ArticlesPageComponents/Select";
 import { Link } from "react-router";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import Shimmer from "../components/Shimmer/Shimmer";
 
 function ArticlesPage({ articles, setArticles }) {
   const [inputValue, setInputValue] = useState("");
@@ -48,7 +48,7 @@ function ArticlesPage({ articles, setArticles }) {
 
       <div className=" my-6 p-4 flex flex-col  items-center md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4">
         {isLoading ? (
-          <Spinner />
+          <Shimmer />
         ) : (
           <>
             {inputValue === "" &&
@@ -56,7 +56,7 @@ function ArticlesPage({ articles, setArticles }) {
                 return <ArticlesCard key={obj.article_id} obj={obj} />;
               })}
             {inputValue !== "" && !updatedArticles.length ? (
-              <Spinner />
+              <Shimmer />
             ) : (
               updatedArticles.map((obj) => {
                 return <ArticlesCard key={obj.article_id} obj={obj} />;

@@ -3,7 +3,7 @@ import { FaAlignJustify } from "react-icons/fa6";
 
 function NavIcon({ setShow }) {
   return (
-    <div className="text-center">
+    <div className="text-center cursor-pointer">
       <FaAlignJustify
         onClick={() => setShow(true)}
         className="text-[rgb(235,27,36)] text-2xl md:text-4xl"

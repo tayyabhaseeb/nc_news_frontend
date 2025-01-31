@@ -31,12 +31,30 @@ function App() {
               }
             />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/users" element={<UsersPage />} />
-            <Route path="/articles/:id" element={<SingleArticlePage />} />
+            <Route
+              path="/users"
+              element={
+                <PrivateRoute>
+                  <UsersPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/articles/:id"
+              element={
+                <PrivateRoute>
+                  <SingleArticlePage />
+                </PrivateRoute>
+              }
+            />
             <Route path="/articles/topics/:topic" element={<TopicPage />} />
             <Route
               path="/articles/new"
-              element={<CreateArticlePage setArticles={setArticles} />}
+              element={
+                <PrivateRoute>
+                  <CreateArticlePage setArticles={setArticles} />
+                </PrivateRoute>
+              }
             />
           </Routes>
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import ArticlesCard from "../components/ArticlesPageComponents/articlesCard";
+import ArticlesCard from "../components/ArticlesPageComponents/ArticlesCard";
 import { getSpecificArticle } from "../api/api";
 import Shimmer from "../components/Shimmer/Shimmer";
 

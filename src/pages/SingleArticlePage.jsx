@@ -5,7 +5,7 @@ import {
   getArticleComments,
   incrementVotes,
 } from "../api/api";
-import { useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import Comments from "../components/SingleArticlePage/Comments";
 import AddCommentForm from "../components/SingleArticlePage/AddCommentForm";
 import { BiSolidDownvote } from "react-icons/bi";
@@ -22,8 +22,7 @@ function SingleArticlePage() {
   const [newCommentId, setNewCommentId] = useState(null);
   const [iconGreen, setIconGreen] = useState(false);
   const [iconRed, setIconRed] = useState(false);
-
-  console.log(newCommentId);
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -82,6 +81,12 @@ function SingleArticlePage() {
 
   return (
     <>
+      <button
+        onClick={() => navigate(-1)}
+        className=" px-4  py-2 inline-block  mx-4 mt-6 border-2 border-white  rounded text-lg font-semibold bg-[rgba(235,27,36,1)] text-white hover:text-[rgba(235,27,36,1)] hover:shadow-sm hover:bg-gray-200 active:shadow-none active:translate-y-1"
+      >
+        ← Back
+      </button>
       <div className="p-4 m-4 bg-white border border-gray-200 rounded-lg flex flex-col justify-center items-center gap-4 md:gap-6 md:p-6 md:w-1/2 md:mx-auto">
         <p className="text-2xl text-center font-bold md:text-4xl md:my-4">
           {article.title}

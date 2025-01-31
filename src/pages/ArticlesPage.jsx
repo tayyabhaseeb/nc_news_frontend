@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Input from "../components/ArticlesPageComponents/Input";
 import { getArticles } from "../api/api";
-import ArticlesCard from "../components/ArticlesPageComponents/articlesCard";
+import ArticlesCard from "../components/ArticlesPageComponents/ArticlesCard";
 import Select from "../components/ArticlesPageComponents/Select";
 import { Link } from "react-router";
 import { IoMdAddCircleOutline } from "react-icons/io";

@@ -3,13 +3,14 @@ import { getAllUsers } from "../api/api";
 
 import UsersCard from "../components/usersComponents/usersCard";
 import Shimmer from "../components/Shimmer/Shimmer";
+import { useNavigate } from "react-router";
 
 function UsersPage() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  console.log(users);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -25,17 +26,25 @@ function UsersPage() {
   }, []);
 
   return (
-    <div className=" my-6 p-4 flex flex-col  items-center md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4">
-      {loading ? (
-        <Shimmer />
-      ) : (
-        <>
-          {users.map((obj) => {
-            return <UsersCard key={obj.username} obj={obj} />;
-          })}
-        </>
-      )}
-    </div>
+    <>
+      <button
+        onClick={() => navigate(-1)}
+        className=" px-4  py-2 inline-block  mx-4 mt-6 border-2 border-white  rounded text-lg font-semibold bg-[rgba(235,27,36,1)] text-white hover:text-[rgba(235,27,36,1)] hover:shadow-sm hover:bg-gray-200 active:shadow-none active:translate-y-1"
+      >
+        ← Back
+      </button>
+      <div className=" my-6 p-4 flex flex-col  items-center md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4">
+        {loading ? (
+          <Shimmer />
+        ) : (
+          <>
+            {users.map((obj) => {
+              return <UsersCard key={obj.username} obj={obj} />;
+            })}
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

@@ -4,7 +4,7 @@ import Header from "./components/HeaderComponents/Header";
 import { BrowserRouter, Routes, Route, Link } from "react-router";
 import ArticlesPage from "./pages/ArticlesPage";
 import "./index.css";
-import SingleArticlePage from "./pages/singleArticlePage";
+import SingleArticlePage from "./pages/SingleArticlePage";
 import TopicPage from "./pages/TopicPage";
 import UsersPage from "./pages/UsersPage";
 import Footer from "./components/Footer/Footer";

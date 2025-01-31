@@ -10,12 +10,14 @@ import Shimmer from "../components/Shimmer/Shimmer";
 function ArticlesPage({ articles, setArticles }) {
   const [inputValue, setInputValue] = useState("");
   const [updatedArticles, setUpdatedArticles] = useState([]);
+  const [sortBy, setSortBy] = useState("");
+  const [order, setOrder] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles()
+    getArticles(sortBy, order)
       .then((data) => {
         setArticles(data);
         setIsLoading(false);
@@ -24,7 +26,7 @@ function ArticlesPage({ articles, setArticles }) {
         setIsLoading(false);
         setError(err);
       });
-  }, []);
+  }, [sortBy, order]);
 
   return (
     <div className=" p-6 bg-[rgba(248, 249, 249)]">
@@ -43,7 +45,12 @@ function ArticlesPage({ articles, setArticles }) {
           setUpdatedArticles={setUpdatedArticles}
           articles={articles}
         />
-        <Select />
+        <Select
+          sortBy={sortBy}
+          order={order}
+          setSortBy={setSortBy}
+          setOrder={setOrder}
+        />
       </div>
 
       <div className=" my-6 p-4 flex flex-col  items-center md:flex md:flex-row md:flex-wrap md:justify-center md:gap-4">

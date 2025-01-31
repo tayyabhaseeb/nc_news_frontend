@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllUsers } from "../api/api";
 
-import UsersCard from "../components/usersComponents/usersCard";
+import UsersCard from "../components/usersComponents/UsersCard";
 import Shimmer from "../components/Shimmer/Shimmer";
 import { useNavigate } from "react-router";
 

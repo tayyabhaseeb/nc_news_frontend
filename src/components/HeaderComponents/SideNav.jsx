@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router";
+// import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function SideNav({ setShow }) {
   const topics = ["home", "coding", "cooking", "football"];

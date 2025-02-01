@@ -47,7 +47,14 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/articles/topics/:topic" element={<TopicPage />} />
+            <Route
+              path="/articles/topics/:topic"
+              element={
+                <PrivateRoute>
+                  <TopicPage />
+                </PrivateRoute>
+              }
+            />
             <Route
               path="/articles/new"
               element={

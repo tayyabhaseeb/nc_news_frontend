@@ -48,7 +48,14 @@ npm run dev
 ```
 The app will be available at **http://localhost:5173**  
 
----
+
+
+## **Test Credentials (For Demo Purposes Only)**  
+For testing, you can log in using the following credentials:  
+
+- **Email:** `grumpy19@gmail.com`  
+- **Password:** `password123`
+- 
 
 ## **API Endpoints Used (From Backend)**  
 The frontend interacts with the following API endpoints:  

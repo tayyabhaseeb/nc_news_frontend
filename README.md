@@ -55,7 +55,6 @@ For testing, you can log in using the following credentials:
 
 - **Email:** `grumpy19@gmail.com`  
 - **Password:** `password123`
-- 
 
 ## **API Endpoints Used (From Backend)**  
 The frontend interacts with the following API endpoints:  
